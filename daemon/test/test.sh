@@ -61,6 +61,8 @@ if cmp -s expected.txt /tmp/gitup/daemon.out ; then
   echo "Daemon Matched Expected Output :)"
 else
   echo "Daemon Didn't Match Expected Output :("
+  echo "Diff:"
+  diff expected.txt /tmp/gitup/daemon.out
 fi
 
 #Compile OAuth
