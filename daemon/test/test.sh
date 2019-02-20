@@ -43,17 +43,18 @@ python stop_daemon.py
 
 #Write expected output file
 sudo touch expected.txt
-sudo echo "REPOSITORY=[/tmp/testrepo] PATH=[/tmp/testrepo] FILENAME=[test.txt] EVENT_TYPES=['IN_CREATE']" | sudo tee -a test.txt > /dev/null
-sudo echo "REPOSITORY=[/tmp/testrepo] PATH=[/tmp/testrepo] FILENAME=[test.txt] EVENT_TYPES=['IN_OPEN']" | sudo tee -a test.txt > /dev/null
-sudo echo "REPOSITORY=[/tmp/testrepo] PATH=[/tmp/testrepo] FILENAME=[test.txt] EVENT_TYPES=['IN_ATTRIB']" | sudo tee -a test.txt > /dev/null
-sudo echo "REPOSITORY=[/tmp/testrepo] PATH=[/tmp/testrepo] FILENAME=[test.txt] EVENT_TYPES=['IN_CLOSE_WRITE']" | sudo tee -a test.txt > /dev/null
-sudo echo "REPOSITORY=[/tmp/testrepo] PATH=[/tmp/testrepo] FILENAME=[test.txt] EVENT_TYPES=['IN_OPEN']" | sudo tee -a test.txt > /dev/null
-sudo echo "REPOSITORY=[/tmp/testrepo] PATH=[/tmp/testrepo] FILENAME=[test.txt] EVENT_TYPES=['IN_MODIFY']" | sudo tee -a test.txt > /dev/null
-sudo echo "REPOSITORY=[/tmp/testrepo] PATH=[/tmp/testrepo] FILENAME=[test.txt] EVENT_TYPES=['IN_CLOSE_WRITE']" | sudo tee -a test.txt > /dev/null
-sudo echo "REPOSITORY=[/tmp/testrepo] PATH=[/tmp/testrepo] FILENAME=[test.txt] EVENT_TYPES=['IN_OPEN']" | sudo tee -a test.txt > /dev/null
-sudo echo "REPOSITORY=[/tmp/testrepo] PATH=[/tmp/testrepo] FILENAME=[test.txt] EVENT_TYPES=['IN_ACCESS']" | sudo tee -a test.txt > /dev/null
-sudo echo "REPOSITORY=[/tmp/testrepo] PATH=[/tmp/testrepo] FILENAME=[test.txt] EVENT_TYPES=['IN_CLOSE_NOWRITE']" | sudo tee -a test.txt > /dev/null
-sudo echo "REPOSITORY=[/tmp/testrepo] PATH=[/tmp/testrepo] FILENAME=[test.txt] EVENT_TYPES=['IN_DELETE']" | sudo tee -a test.txt > /dev/null
+sudo echo "Started" | sudo tee -a expected.txt > /dev/null
+sudo echo "REPOSITORY=[/tmp/testrepo] PATH=[/tmp/testrepo] FILENAME=[test.txt] EVENT_TYPES=['IN_CREATE']" | sudo tee -a expected.txt > /dev/null
+sudo echo "REPOSITORY=[/tmp/testrepo] PATH=[/tmp/testrepo] FILENAME=[test.txt] EVENT_TYPES=['IN_OPEN']" | sudo tee -a expected.txt > /dev/null
+sudo echo "REPOSITORY=[/tmp/testrepo] PATH=[/tmp/testrepo] FILENAME=[test.txt] EVENT_TYPES=['IN_ATTRIB']" | sudo tee -a expected.txt > /dev/null
+sudo echo "REPOSITORY=[/tmp/testrepo] PATH=[/tmp/testrepo] FILENAME=[test.txt] EVENT_TYPES=['IN_CLOSE_WRITE']" | sudo tee -a expected.txt > /dev/null
+sudo echo "REPOSITORY=[/tmp/testrepo] PATH=[/tmp/testrepo] FILENAME=[test.txt] EVENT_TYPES=['IN_OPEN']" | sudo tee -a expected.txt > /dev/null
+sudo echo "REPOSITORY=[/tmp/testrepo] PATH=[/tmp/testrepo] FILENAME=[test.txt] EVENT_TYPES=['IN_MODIFY']" | sudo tee -a expected.txt > /dev/null
+sudo echo "REPOSITORY=[/tmp/testrepo] PATH=[/tmp/testrepo] FILENAME=[test.txt] EVENT_TYPES=['IN_CLOSE_WRITE']" | sudo tee -a expected.txt > /dev/null
+sudo echo "REPOSITORY=[/tmp/testrepo] PATH=[/tmp/testrepo] FILENAME=[test.txt] EVENT_TYPES=['IN_OPEN']" | sudo tee -a expected.txt > /dev/null
+sudo echo "REPOSITORY=[/tmp/testrepo] PATH=[/tmp/testrepo] FILENAME=[test.txt] EVENT_TYPES=['IN_ACCESS']" | sudo tee -a expected.txt > /dev/null
+sudo echo "REPOSITORY=[/tmp/testrepo] PATH=[/tmp/testrepo] FILENAME=[test.txt] EVENT_TYPES=['IN_CLOSE_NOWRITE']" | sudo tee -a expected.txt > /dev/null
+sudo echo "REPOSITORY=[/tmp/testrepo] PATH=[/tmp/testrepo] FILENAME=[test.txt] EVENT_TYPES=['IN_DELETE']" | sudo tee -a expected.txt > /dev/null
 
 #Compare daemon output with expected
 echo "Comparing output to expected:"
