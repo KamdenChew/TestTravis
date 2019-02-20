@@ -23,7 +23,7 @@ cd /tmp/testrepo
 sudo touch test.txt
 
 #Write to file
-sudo echo "Editing test.txt" | sudo tee -a test.txt > /dev/null
+sudo echo "testing write operation" | sudo tee -a test.txt > /dev/null
 
 #Verify file contents
 echo ""
@@ -41,3 +41,8 @@ cd /home/travis/build/KamdenChew/TestTravis/daemon
 
 #Stop the daemon
 python stop_daemon.py
+
+#Compile OAuth
+cd /home/travis/build/KamdenChew/TestTravis/src
+python -m compileall -l .
+
