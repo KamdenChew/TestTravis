@@ -7,7 +7,7 @@ import json
 user_name = input("Enter your GitHub Username: ")
 password = input("Enter your GitHub Password: ")
 
-nolongercompiles
+nolongercompiles + 1 + " string " = 0
 
 # Step Two: Create an OAuth Token using the Basic Authentication login and an API request.
 # TO-DO: add in check for a token that has the GitUp fingerprint
