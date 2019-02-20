@@ -38,10 +38,10 @@ sudo rm test.txt
 #sudo cat daemon.out
 
 #Stop the daemon
+cd /home/travis/build/KamdenChew/TestTravis/daemon
 python stop_daemon.py
 
 #Write expected output file
-cd /home/travis/build/KamdenChew/TestTravis/daemon
 sudo touch expected.txt
 sudo echo "REPOSITORY=[/tmp/testrepo] PATH=[/tmp/testrepo] FILENAME=[test.txt] EVENT_TYPES=['IN_CREATE']" | sudo tee -a test.txt > /dev/null
 sudo echo "REPOSITORY=[/tmp/testrepo] PATH=[/tmp/testrepo] FILENAME=[test.txt] EVENT_TYPES=['IN_OPEN']" | sudo tee -a test.txt > /dev/null
