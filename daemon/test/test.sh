@@ -56,7 +56,9 @@ sudo echo "REPOSITORY=[/tmp/testrepo] PATH=[/tmp/testrepo] FILENAME=[test.txt] E
 sudo echo "REPOSITORY=[/tmp/testrepo] PATH=[/tmp/testrepo] FILENAME=[test.txt] EVENT_TYPES=['IN_DELETE']" | sudo tee -a test.txt > /dev/null
 
 #Compare daemon output with expected
+echo "Comparing output to expected:"
 cmp -s expected.txt /tmp/gitup/daemon.out
+echo "Completed comparison!"
 
 #Compile OAuth
 #cd /home/travis/build/KamdenChew/TestTravis/src
