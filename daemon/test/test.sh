@@ -13,6 +13,8 @@ mkdir testrepo
 cd testrepo
 git init
 
+cd /home/travis/build/KamdenChew/TestTravis/daemon
+
 #Start the daemon
 python start_daemon.py
 
@@ -34,6 +36,8 @@ sudo rm test.txt
 #Print daemon output
 cd /tmp/gitup
 sudo cat daemon.out
+
+cd /home/travis/build/KamdenChew/TestTravis/daemon
 
 #Stop the daemon
 python stop_daemon.py
