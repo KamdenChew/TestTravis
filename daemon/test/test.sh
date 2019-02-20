@@ -57,8 +57,11 @@ sudo echo "REPOSITORY=[/tmp/testrepo] PATH=[/tmp/testrepo] FILENAME=[test.txt] E
 
 #Compare daemon output with expected
 echo "Comparing output to expected:"
-cmp -s expected.txt /tmp/gitup/daemon.out
-echo "Completed comparison!"
+if cmp -s expected.txt /tmp/gitup/daemon.out ; then
+  echo "Daemon Matched Expected Output!"
+else
+  echo "Daemon Didn't Matched Expected Output :("
+fi
 
 #Compile OAuth
 #cd /home/travis/build/KamdenChew/TestTravis/src
