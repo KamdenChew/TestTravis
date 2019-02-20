@@ -26,23 +26,39 @@ sudo touch test.txt
 sudo echo "testing write operation" | sudo tee -a test.txt > /dev/null
 
 #Verify file contents
-echo ""
-echo "Contents of test.txt:"
-sudo cat test.txt
+#echo ""
+#echo "Contents of test.txt:"
+#sudo cat test.txt
 
 #Remove file
 sudo rm test.txt
 
 #Print daemon output
-cd /tmp/gitup
-sudo cat daemon.out
-
-cd /home/travis/build/KamdenChew/TestTravis/daemon
+#cd /tmp/gitup
+#sudo cat daemon.out
 
 #Stop the daemon
 python stop_daemon.py
 
+#Write expected output file
+cd /home/travis/build/KamdenChew/TestTravis/daemon
+sudo touch expected.txt
+sudo echo "REPOSITORY=[/tmp/testrepo] PATH=[/tmp/testrepo] FILENAME=[test.txt] EVENT_TYPES=['IN_CREATE']" | sudo tee -a test.txt > /dev/null
+sudo echo "REPOSITORY=[/tmp/testrepo] PATH=[/tmp/testrepo] FILENAME=[test.txt] EVENT_TYPES=['IN_OPEN']" | sudo tee -a test.txt > /dev/null
+sudo echo "REPOSITORY=[/tmp/testrepo] PATH=[/tmp/testrepo] FILENAME=[test.txt] EVENT_TYPES=['IN_ATTRIB']" | sudo tee -a test.txt > /dev/null
+sudo echo "REPOSITORY=[/tmp/testrepo] PATH=[/tmp/testrepo] FILENAME=[test.txt] EVENT_TYPES=['IN_CLOSE_WRITE']" | sudo tee -a test.txt > /dev/null
+sudo echo "REPOSITORY=[/tmp/testrepo] PATH=[/tmp/testrepo] FILENAME=[test.txt] EVENT_TYPES=['IN_OPEN']" | sudo tee -a test.txt > /dev/null
+sudo echo "REPOSITORY=[/tmp/testrepo] PATH=[/tmp/testrepo] FILENAME=[test.txt] EVENT_TYPES=['IN_MODIFY']" | sudo tee -a test.txt > /dev/null
+sudo echo "REPOSITORY=[/tmp/testrepo] PATH=[/tmp/testrepo] FILENAME=[test.txt] EVENT_TYPES=['IN_CLOSE_WRITE']" | sudo tee -a test.txt > /dev/null
+sudo echo "REPOSITORY=[/tmp/testrepo] PATH=[/tmp/testrepo] FILENAME=[test.txt] EVENT_TYPES=['IN_OPEN']" | sudo tee -a test.txt > /dev/null
+sudo echo "REPOSITORY=[/tmp/testrepo] PATH=[/tmp/testrepo] FILENAME=[test.txt] EVENT_TYPES=['IN_ACCESS']" | sudo tee -a test.txt > /dev/null
+sudo echo "REPOSITORY=[/tmp/testrepo] PATH=[/tmp/testrepo] FILENAME=[test.txt] EVENT_TYPES=['IN_CLOSE_NOWRITE']" | sudo tee -a test.txt > /dev/null
+sudo echo "REPOSITORY=[/tmp/testrepo] PATH=[/tmp/testrepo] FILENAME=[test.txt] EVENT_TYPES=['IN_DELETE']" | sudo tee -a test.txt > /dev/null
+
+#Compare daemon output with expected
+cmp -s expected.txt /tmp/gitup/daemon.out
+
 #Compile OAuth
-cd /home/travis/build/KamdenChew/TestTravis/src
-python -m compileall -l .
+#cd /home/travis/build/KamdenChew/TestTravis/src
+#python -m compileall -l .
 
