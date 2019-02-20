@@ -58,9 +58,9 @@ sudo echo "REPOSITORY=[/tmp/testrepo] PATH=[/tmp/testrepo] FILENAME=[test.txt] E
 #Compare daemon output with expected
 echo "Comparing output to expected:"
 if cmp -s expected.txt /tmp/gitup/daemon.out ; then
-  echo "Daemon Matched Expected Output!"
+  echo "Daemon Matched Expected Output :)"
 else
-  echo "Daemon Didn't Matched Expected Output :("
+  echo "Daemon Didn't Match Expected Output :("
 fi
 
 #Compile OAuth
