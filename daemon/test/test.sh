@@ -14,21 +14,26 @@ cd testrepo
 git init
 
 #Start the daemon
-cd /home/travis/build/KamdenChew/TestTravis/daemon
-echo ""
-echo ""
-echo ""
-echo ""
-echo ""
-echo "starting daemon in:"
-pwd
-echo "Pip list:"
-pip list
-echo ""
-echo ""
-echo ""
-echo ""
 python start_daemon.py
+
+#Create new file
+cd /tmp/testrepo
+sudo touch test.txt
+
+#Write to file
+sudo echo "Editing test.txt" | sudo tee -a test.txt > /dev/null
+
+#Verify file contents
+echo ""
+echo "Contents of test.txt:"
+sudo cat test.txt
+
+#Remove file
+sudo rm test.txt
+
+#Print daemon output
+cd /tmp/gitup
+sudo cat daemon.out
 
 #Stop the daemon
 python stop_daemon.py
